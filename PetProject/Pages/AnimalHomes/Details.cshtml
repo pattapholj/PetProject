@@ -1,0 +1,73 @@
+@page
+@model PetProject.Pages.AnimalHomes.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Shelters</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterPhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterPhoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterCity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterCity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterZip)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterZip)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterLatitude)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterLatitude)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterLongitude)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterLongitude)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Shelters.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

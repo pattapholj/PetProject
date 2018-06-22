@@ -1,0 +1,87 @@
+@page
+@model PetProject.Pages.AnimalHomes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelters[0].ShelterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelters[0].ShelterAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelters[0].ShelterPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelters[0].ShelterCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelters[0].ShelterZip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelters[0].ShelterEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelters[0].ShelterLatitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelters[0].ShelterLongitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelters[0].ShelterId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Shelters) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShelterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShelterAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShelterPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShelterCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShelterZip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShelterEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShelterLatitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShelterLongitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShelterId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+
+</table>
+
+

@@ -1,0 +1,84 @@
+@page
+@model PetProject.Pages.Animals.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Pets</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Pets.PetName" class="control-label"></label>
+                <input asp-for="Pets.PetName" class="form-control" />
+                <span asp-validation-for="Pets.PetName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pets.PetBreed1" class="control-label"></label>
+                <input asp-for="Pets.PetBreed1" class="form-control" />
+                <span asp-validation-for="Pets.PetBreed1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pets.PetBreed2" class="control-label"></label>
+                <input asp-for="Pets.PetBreed2" class="form-control" />
+                <span asp-validation-for="Pets.PetBreed2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pets.PetGender" class="control-label"></label>
+                <input asp-for="Pets.PetGender" class="form-control" />
+                <span asp-validation-for="Pets.PetGender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pets.PetDescription" class="control-label"></label>
+                <input asp-for="Pets.PetDescription" class="form-control" />
+                <span asp-validation-for="Pets.PetDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pets.PetDetails" class="control-label"></label>
+                <input asp-for="Pets.PetDetails" class="form-control" />
+                <span asp-validation-for="Pets.PetDetails" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pets.PetLastUpdated" class="control-label"></label>
+                <input asp-for="Pets.PetLastUpdated" class="form-control" />
+                <span asp-validation-for="Pets.PetLastUpdated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pets.PetPhotosLink" class="control-label"></label>
+                <input asp-for="Pets.PetPhotosLink" class="form-control" />
+                <span asp-validation-for="Pets.PetPhotosLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pets.ShelterId" class="control-label"></label>
+                <input asp-for="Pets.ShelterId" class="form-control" />
+                <span asp-validation-for="Pets.ShelterId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pets.PetId" class="control-label"></label>
+                <input asp-for="Pets.PetId" class="form-control" />
+                <span asp-validation-for="Pets.PetId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pets.PetType" class="control-label"></label>
+                <input asp-for="Pets.PetType" class="form-control" />
+                <span asp-validation-for="Pets.PetType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

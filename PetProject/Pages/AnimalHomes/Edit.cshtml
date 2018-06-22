@@ -1,0 +1,75 @@
+@page
+@model PetProject.Pages.AnimalHomes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Shelters</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Shelters.Id" />
+            <div class="form-group">
+                <label asp-for="Shelters.ShelterName" class="control-label"></label>
+                <input asp-for="Shelters.ShelterName" class="form-control" />
+                <span asp-validation-for="Shelters.ShelterName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shelters.ShelterAddress" class="control-label"></label>
+                <input asp-for="Shelters.ShelterAddress" class="form-control" />
+                <span asp-validation-for="Shelters.ShelterAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shelters.ShelterPhoneNumber" class="control-label"></label>
+                <input asp-for="Shelters.ShelterPhoneNumber" class="form-control" />
+                <span asp-validation-for="Shelters.ShelterPhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shelters.ShelterCity" class="control-label"></label>
+                <input asp-for="Shelters.ShelterCity" class="form-control" />
+                <span asp-validation-for="Shelters.ShelterCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shelters.ShelterZip" class="control-label"></label>
+                <input asp-for="Shelters.ShelterZip" class="form-control" />
+                <span asp-validation-for="Shelters.ShelterZip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shelters.ShelterEmail" class="control-label"></label>
+                <input asp-for="Shelters.ShelterEmail" class="form-control" />
+                <span asp-validation-for="Shelters.ShelterEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shelters.ShelterLatitude" class="control-label"></label>
+                <input asp-for="Shelters.ShelterLatitude" class="form-control" />
+                <span asp-validation-for="Shelters.ShelterLatitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shelters.ShelterLongitude" class="control-label"></label>
+                <input asp-for="Shelters.ShelterLongitude" class="form-control" />
+                <span asp-validation-for="Shelters.ShelterLongitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shelters.ShelterId" class="control-label"></label>
+                <input asp-for="Shelters.ShelterId" class="form-control" />
+                <span asp-validation-for="Shelters.ShelterId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

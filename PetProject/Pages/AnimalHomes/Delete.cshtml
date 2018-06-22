@@ -1,0 +1,76 @@
+@page
+@model PetProject.Pages.AnimalHomes.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Shelters</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterPhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterPhoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterCity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterCity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterZip)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterZip)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterLatitude)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterLatitude)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterLongitude)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterLongitude)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelters.ShelterId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shelters.ShelterId)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Shelters.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

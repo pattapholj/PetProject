@@ -1,0 +1,96 @@
+@page
+@model PetProject.Pages.Animals.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets[0].PetName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets[0].PetBreed1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets[0].PetBreed2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets[0].PetGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets[0].PetDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets[0].PetDetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets[0].PetLastUpdated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets[0].PetPhotosLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets[0].ShelterId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets[0].PetId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets[0].PetType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Pets) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetBreed1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetBreed2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetLastUpdated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetPhotosLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShelterId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetType)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
