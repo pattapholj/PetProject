@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-//Pet Model
+
 namespace PetProject.Models
 {
     public partial class Pets
@@ -14,10 +13,11 @@ namespace PetProject.Models
         public string PetDescription { get; set; }
         public string PetDetails { get; set; }
         public string PetLastUpdated { get; set; }
-        [DataType(DataType.Url)]
         public string PetPhotosLink { get; set; }
         public string ShelterId { get; set; }
         public string PetId { get; set; }
         public string PetType { get; set; }
+
+        public Shelters Shelter { get; set; }
     }
 }

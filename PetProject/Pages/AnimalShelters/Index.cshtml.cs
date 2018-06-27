@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using PetProject.Models;
 
-namespace PetProject.Pages.AnimalHomes
+namespace PetProject.Pages.AnimalShelters
 {
     public class IndexModel : PageModel
     {
-        private readonly PetProject.Models.pubsContext _context;
+        private readonly PetProject.Models.PetProjectContext _context;
 
-        public IndexModel(PetProject.Models.pubsContext context)
+        public IndexModel(PetProject.Models.PetProjectContext context)
         {
             _context = context;
         }

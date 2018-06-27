@@ -61,12 +61,6 @@
             @Html.DisplayFor(model => model.Pets.PetPhotosLink)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Pets.ShelterId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Pets.ShelterId)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.Pets.PetId)
         </dt>
         <dd>
@@ -77,6 +71,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Pets.PetType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pets.Shelter)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pets.Shelter.ShelterId)
         </dd>
     </dl>
     

@@ -38,13 +38,13 @@
                 @Html.DisplayNameFor(model => model.Pets[0].PetPhotosLink)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Pets[0].ShelterId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Pets[0].PetId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Pets[0].PetType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets[0].Shelter)
             </th>
             <th></th>
         </tr>
@@ -77,13 +77,13 @@
                 @Html.DisplayFor(modelItem => item.PetPhotosLink)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ShelterId)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.PetId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PetType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shelter.ShelterId)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

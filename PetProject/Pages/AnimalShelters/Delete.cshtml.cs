@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using PetProject.Models;
 
-namespace PetProject.Pages.AnimalHomes
+namespace PetProject.Pages.AnimalShelters
 {
     public class DeleteModel : PageModel
     {
-        private readonly PetProject.Models.pubsContext _context;
+        private readonly PetProject.Models.PetProjectContext _context;
 
-        public DeleteModel(PetProject.Models.pubsContext context)
+        public DeleteModel(PetProject.Models.PetProjectContext context)
         {
             _context = context;
         }

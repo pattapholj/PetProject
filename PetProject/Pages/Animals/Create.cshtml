@@ -55,8 +55,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Pets.ShelterId" class="control-label"></label>
-                <input asp-for="Pets.ShelterId" class="form-control" />
-                <span asp-validation-for="Pets.ShelterId" class="text-danger"></span>
+                <select asp-for="Pets.ShelterId" class ="form-control" asp-items="ViewBag.ShelterId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Pets.PetId" class="control-label"></label>

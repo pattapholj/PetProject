@@ -5,6 +5,11 @@ namespace PetProject.Models
 {
     public partial class Shelters
     {
+        public Shelters()
+        {
+            Pets = new HashSet<Pets>();
+        }
+
         public int Id { get; set; }
         public string ShelterName { get; set; }
         public string ShelterAddress { get; set; }
@@ -15,5 +20,7 @@ namespace PetProject.Models
         public double? ShelterLatitude { get; set; }
         public double? ShelterLongitude { get; set; }
         public string ShelterId { get; set; }
+
+        public ICollection<Pets> Pets { get; set; }
     }
 }

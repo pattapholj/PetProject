@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using PetProject.Models;
 
-namespace PetProject.Pages.AnimalHomes
+namespace PetProject.Pages.AnimalShelters
 {
     public class CreateModel : PageModel
     {
-        private readonly PetProject.Models.pubsContext _context;
+        private readonly PetProject.Models.PetProjectContext _context;
 
-        public CreateModel(PetProject.Models.pubsContext context)
+        public CreateModel(PetProject.Models.PetProjectContext context)
         {
             _context = context;
         }

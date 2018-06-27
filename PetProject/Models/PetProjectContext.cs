@@ -4,41 +4,31 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace PetProject.Models
 {
-    public partial class pubsContext : DbContext
+    public partial class PetProjectContext : DbContext
     {
-        public pubsContext()
+        public PetProjectContext()
         {
         }
 
-        public pubsContext(DbContextOptions<pubsContext> options)
+        public PetProjectContext(DbContextOptions<PetProjectContext> options)
             : base(options)
         {
         }
 
-
         public virtual DbSet<Pets> Pets { get; set; }
         public virtual DbSet<Shelters> Shelters { get; set; }
-
-
-        // Unable to generate entity type for table 'dbo.TEST'. Please see the warning messages.
-        // Unable to generate entity type for table 'dbo.TESTs'. Please see the warning messages.
-        // Unable to generate entity type for table 'dbo.roysched'. Please see the warning messages.
-        // Unable to generate entity type for table 'dbo.discounts'. Please see the warning messages.
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-7BEERKL\\SQLEXPRESS;Database=pubs;user=root;password=a");
+                optionsBuilder.UseSqlServer("server=DESKTOP-7BEERKL\\SQLEXPRESS;Database=PetProject;user=root;password=a");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-          
-            
-
             modelBuilder.Entity<Pets>(entity =>
             {
                 entity.ToTable("pets");
@@ -94,16 +84,25 @@ namespace PetProject.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.ShelterId)
+                    .IsRequired()
                     .HasColumnName("shelter_ID")
-                    .HasMaxLength(100)
+                    .HasMaxLength(10)
                     .IsUnicode(false);
-            });
 
-            
+                entity.HasOne(d => d.Shelter)
+                    .WithMany(p => p.Pets)
+                    .HasPrincipalKey(p => p.ShelterId)
+                    .HasForeignKey(d => d.ShelterId)
+                    .HasConstraintName("FK_Pets_ShelterID");
+            });
 
             modelBuilder.Entity<Shelters>(entity =>
             {
                 entity.ToTable("shelters");
+
+                entity.HasIndex(e => e.ShelterId)
+                    .HasName("Shelter_sID")
+                    .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -123,8 +122,9 @@ namespace PetProject.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.ShelterId)
+                    .IsRequired()
                     .HasColumnName("shelter_ID")
-                    .HasMaxLength(60)
+                    .HasMaxLength(10)
                     .IsUnicode(false);
 
                 entity.Property(e => e.ShelterLatitude).HasColumnName("shelter_latitude");
@@ -146,9 +146,6 @@ namespace PetProject.Models
                     .HasMaxLength(60)
                     .IsUnicode(false);
             });
-
-           
-           
         }
     }
 }

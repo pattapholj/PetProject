@@ -11,15 +11,16 @@ namespace PetProject.Pages.Animals
 {
     public class CreateModel : PageModel
     {
-        private readonly PetProject.Models.pubsContext _context;
+        private readonly PetProject.Models.PetProjectContext _context;
 
-        public CreateModel(PetProject.Models.pubsContext context)
+        public CreateModel(PetProject.Models.PetProjectContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
+        ViewData["ShelterId"] = new SelectList(_context.Shelters, "ShelterId", "ShelterId");
             return Page();
         }
 

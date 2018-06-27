@@ -11,9 +11,9 @@ namespace PetProject.Pages.Animals
 {
     public class DetailsModel : PageModel
     {
-        private readonly PetProject.Models.pubsContext _context;
+        private readonly PetProject.Models.PetProjectContext _context;
 
-        public DetailsModel(PetProject.Models.pubsContext context)
+        public DetailsModel(PetProject.Models.PetProjectContext context)
         {
             _context = context;
         }
@@ -27,7 +27,8 @@ namespace PetProject.Pages.Animals
                 return NotFound();
             }
 
-            Pets = await _context.Pets.FirstOrDefaultAsync(m => m.Id == id);
+            Pets = await _context.Pets
+                .Include(p => p.Shelter).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Pets == null)
             {

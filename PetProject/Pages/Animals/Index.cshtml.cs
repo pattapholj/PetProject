@@ -11,9 +11,9 @@ namespace PetProject.Pages.Animals
 {
     public class IndexModel : PageModel
     {
-        private readonly PetProject.Models.pubsContext _context;
+        private readonly PetProject.Models.PetProjectContext _context;
 
-        public IndexModel(PetProject.Models.pubsContext context)
+        public IndexModel(PetProject.Models.PetProjectContext context)
         {
             _context = context;
         }
@@ -22,7 +22,8 @@ namespace PetProject.Pages.Animals
 
         public async Task OnGetAsync()
         {
-            Pets = await _context.Pets.ToListAsync();
+            Pets = await _context.Pets
+                .Include(p => p.Shelter).ToListAsync();
         }
     }
 }

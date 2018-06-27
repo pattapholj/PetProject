@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PetProject.Models;
-
+//
 namespace PetProject
 {
     public class Startup
@@ -33,8 +33,8 @@ namespace PetProject
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<pubsContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+              services.AddDbContext<PetProjectContext>(options =>
+             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

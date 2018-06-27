@@ -57,13 +57,7 @@
             @Html.DisplayNameFor(model => model.Pets.PetPhotosLink)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Pets.PetPhotosLink)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Pets.ShelterId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Pets.ShelterId)
+            <img src="@Html.DisplayFor(model => model.Pets.PetPhotosLink)">
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Pets.PetId)
@@ -77,9 +71,43 @@
         <dd>
             @Html.DisplayFor(model => model.Pets.PetType)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pets.Shelter)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pets.Shelter.ShelterLatitude)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Pets.Shelter.ShelterLongitude)
+        </dd>
     </dl>
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Pets.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>Shelter's Location</h1>
+     
+    <div id="googleMap" style="width:100%;height:400px;"></div>
+
+    <script>
+        function myMap() {
+            var mapProp = {
+                center: new google.maps.LatLng( @Html.DisplayFor(model => model.Pets.Shelter.ShelterLatitude),  @Html.DisplayFor(model => model.Pets.Shelter.ShelterLongitude)),
+                zoom: 5,
+                
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            console.log
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLPTXlVP6FbkUzx87cUkohN1ZxoaUx22A&callback=myMap"></script>
+
+</body>
+</html>

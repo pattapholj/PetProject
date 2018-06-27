@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using PetProject.Models;
 using PetProject;
 
-namespace ContosoUniversity
+namespace PetProject
 {
     public class Program
     {
@@ -21,7 +21,7 @@ namespace ContosoUniversity
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<pubsContext>();
+                    var context = services.GetRequiredService<PetProjectContext>();
                      
                 }
                 catch (Exception ex)

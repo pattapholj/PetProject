@@ -12,9 +12,9 @@ namespace PetProject.Pages.Animals
 {
     public class EditModel : PageModel
     {
-        private readonly PetProject.Models.pubsContext _context;
+        private readonly PetProject.Models.PetProjectContext _context;
 
-        public EditModel(PetProject.Models.pubsContext context)
+        public EditModel(PetProject.Models.PetProjectContext context)
         {
             _context = context;
         }
@@ -29,12 +29,14 @@ namespace PetProject.Pages.Animals
                 return NotFound();
             }
 
-            Pets = await _context.Pets.FirstOrDefaultAsync(m => m.Id == id);
+            Pets = await _context.Pets
+                .Include(p => p.Shelter).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Pets == null)
             {
                 return NotFound();
             }
+           ViewData["ShelterId"] = new SelectList(_context.Shelters, "ShelterId", "ShelterId");
             return Page();
         }
 
