@@ -10,11 +10,26 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Pets[0].PetName)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort">
+                    @Html.DisplayNameFor(model => model.Pets[0].PetName)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Pets[0].PetBreed1)
@@ -50,47 +65,48 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Pets) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PetName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PetBreed1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PetBreed2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PetGender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PetDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PetDetails)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PetLastUpdated)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PetPhotosLink)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PetId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PetType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Shelter.ShelterId)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Pets)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PetName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PetBreed1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PetBreed2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PetGender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PetDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PetDetails)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PetLastUpdated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PetPhotosLink)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PetId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PetType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Shelter.ShelterId)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

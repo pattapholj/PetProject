@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model PetProject.Pages.Animals.IndexModel
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -34,9 +36,10 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-page="/Index">Home</a></li>
                     <li><a asp-page="/About">About</a></li>
-                    <li><a asp-page="/Animals/Index">Pets</a></li>
-                    <li><a asp-page="/AnimalHomes/Index">Shelters</a></li>
+                    <li><a asp-page="/Animals/Index">Adopt a Pet</a></li>
+                    <li><a asp-page="/AnimalHomes/Index">Shelters in Nevada</a></li>
                     <li><a asp-page="/Contact">Contact</a></li>
+
                 </ul>
             </div>
         </div>
@@ -72,7 +75,7 @@
 </html>
 
 
- <div class="container body-content">
+<div class="container body-content">
     @RenderBody()
     <hr />
     <footer>

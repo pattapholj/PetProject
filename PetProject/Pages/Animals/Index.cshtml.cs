@@ -18,12 +18,48 @@ namespace PetProject.Pages.Animals
             _context = context;
         }
 
+        public string NameSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
+
         public IList<Pets> Pets { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder, string searchString)
         {
-            Pets = await _context.Pets
-                .Include(p => p.Shelter).ToListAsync();
+
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            CurrentFilter = searchString;
+
+ 
+
+            IQueryable<Pets> petsIQ = from p in _context.Pets
+                                            select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                petsIQ = petsIQ.Where(s => s.PetName.Contains(searchString)
+                       || s.PetBreed1.Contains(searchString)
+                        || s.PetBreed2.Contains(searchString)
+                        || s.PetDetails.Contains(searchString));
+            }
+
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    petsIQ = petsIQ.OrderByDescending(s => s.PetName);
+                    break;
+ 
+                default:
+                   petsIQ = petsIQ.OrderBy(s => s.PetName);
+                   break;
+            }
+
+
+            //Pets = await _context.Pets
+            //    .Include(p => p.Shelter).ToListAsync();
+
+            Pets = await petsIQ.Include(p => p.Shelter).ToListAsync();
         }
     }
 }
