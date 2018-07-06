@@ -50,6 +50,7 @@
                 @Html.DisplayNameFor(model => model.Pets[0].PetLastUpdated)
             </th>
             <th>
+                 
                 @Html.DisplayNameFor(model => model.Pets[0].PetPhotosLink)
             </th>
             <th>
@@ -90,7 +91,8 @@
                     @Html.DisplayFor(modelItem => item.PetLastUpdated)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PetPhotosLink)
+                    <img src="@Html.DisplayFor(modelItem => item.PetPhotosLink)">
+                    
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.PetId)
